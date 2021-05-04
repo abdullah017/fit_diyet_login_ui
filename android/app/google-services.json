@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "178139485819",
+    "project_id": "flutterauth-fad6e",
+    "storage_bucket": "flutterauth-fad6e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178139485819:android:18d0943c3a2f06c4a834de",
+        "android_client_info": {
+          "package_name": "com.byneet.doctor_consultant_mobile_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "178139485819-79rd2u8tn3pf9uh3ltg9vlcnhf11mkdv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBh2kQ12uqIIzFNwj1XB1t9Op8_Q8VDkOA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "178139485819-79rd2u8tn3pf9uh3ltg9vlcnhf11mkdv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
