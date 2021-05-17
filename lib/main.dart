@@ -1,15 +1,11 @@
 import 'package:doctor_consultant_mobile_app/views/auth/login.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import 'helpers/theme.dart';
-import 'providers/theme_provider.dart';
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(MaterialApp(home: LoginView()));
+void main() {
+  runApp(MaterialApp(
+    home: LoginView(),
+    debugShowCheckedModeBanner: false,
+  ));
 }
 
 // class MyApp extends StatelessWidget {

@@ -30,7 +30,8 @@ class SpecialistCard extends StatelessWidget {
           Text(
             name,
             textAlign: TextAlign.center,
-            style: theme.textTheme.headline3.copyWith(height: 1.0,color: Colors.white),
+            style: theme.textTheme.headline5
+                .copyWith(height: 1.0, color: Colors.white),
           ),
           SizedBox(height: 5.0),
           Text("$doctor Doctors",

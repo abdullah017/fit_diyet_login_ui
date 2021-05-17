@@ -34,7 +34,8 @@ class ConsultationCard extends StatelessWidget {
                 ),
                 child: Text(
                   "\$${consultation.price}",
-                  style: theme.textTheme.subtitle1.copyWith(color: Colors.white),
+                  style:
+                      theme.textTheme.subtitle1.copyWith(color: Colors.white),
                 ),
               ),
             ),
@@ -47,7 +48,7 @@ class ConsultationCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(consultation.title, style: theme.textTheme.headline3),
+                    Text(consultation.title, style: theme.textTheme.headline5),
                     SizedBox(height: 15.0),
                     Expanded(
                       child: Row(

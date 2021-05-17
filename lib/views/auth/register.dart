@@ -1,7 +1,5 @@
-import 'package:doctor_consultant_mobile_app/views/home.dart';
 import 'package:doctor_consultant_mobile_app/widgets/register_form_text_form_field.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class RegisterView extends StatefulWidget {
   @override
@@ -10,7 +8,7 @@ class RegisterView extends StatefulWidget {
 
 class _RegisterViewState extends State<RegisterView> {
   String _email, _password;
-  final FirebaseAuth auth = FirebaseAuth.instance;
+
   int radioDeger = 0;
   bool _obscureText = false;
   bool _isChange = false;
@@ -172,7 +170,7 @@ class _RegisterViewState extends State<RegisterView> {
                       ],
                     ),
                   ),
-                  FlatButton(
+                  ElevatedButton(
                     onPressed: () {
                       if (radioDeger == 1) {
                         print('Diyetisyen rolü seçildi');
@@ -193,8 +191,6 @@ class _RegisterViewState extends State<RegisterView> {
                       'KAYDOL',
                       style: TextStyle(color: Colors.white),
                     ),
-                    color: Colors.pink,
-                    shape: StadiumBorder(),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

@@ -1,11 +1,8 @@
-//import 'package:doctor_consultant_mobile_app/models/doctor.dart';
-import 'dart:convert';
-
 import 'package:doctor_consultant_mobile_app/models/doctor.dart';
 import 'package:doctor_consultant_mobile_app/views/doctor_detail.dart';
 import 'package:doctor_consultant_mobile_app/widgets/search_box.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class DoctorListView extends StatefulWidget {
@@ -16,93 +13,97 @@ class DoctorListView extends StatefulWidget {
 class _DoctorListViewState extends State<DoctorListView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            SizedBox(height: 20.0),
-            SearchBox(hintText: 'Search doctors'),
-            SizedBox(height: 20.0),
-            Expanded(
-              child: ListView.builder(
-                itemCount: doctorList.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Card(
-                    elevation: 5,
-                    margin:
-                        EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => DoctorListViewDetail(
-                              doctorModel: doctorList[index],
-                            ),
-                          ),
-                        );
-                      },
-                      child: Container(
-                        width: 150.0,
-                        padding: EdgeInsets.all(8.0),
-                        child: Column(
-                          children: <Widget>[
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(14.0),
-                              child: Image.asset(
-                                '${doctorList[index].image}',
-                                fit: BoxFit.cover,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              SizedBox(height: 20.0),
+              SearchBox(hintText: 'Search doctors'),
+              SizedBox(height: 20.0),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: doctorList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Card(
+                      elevation: 5,
+                      margin: EdgeInsets.only(
+                          left: 20.0, right: 20.0, bottom: 20.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => DoctorListViewDetail(
+                                doctorModel: doctorList[index],
                               ),
                             ),
-                            SizedBox(height: 12.0),
-                            Text(
-                              '${doctorList[index].name}',
-                              overflow: TextOverflow.clip,
-                              maxLines: 1,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 6.0),
-                            Text(
-                              '${doctorList[index].specialist}',
-                              overflow: TextOverflow.clip,
-                              maxLines: 1,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                RatingBarIndicator(
-                                  rating: doctorList[index].rating,
-                                  itemBuilder: (context, index) => Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                  ),
-                                  itemCount: 5,
-                                  itemSize: 50.0,
-                                  direction: Axis.horizontal,
+                          );
+                        },
+                        child: Container(
+                          width: 150.0,
+                          padding: EdgeInsets.all(8.0),
+                          child: Column(
+                            children: <Widget>[
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(14.0),
+                                child: Image.asset(
+                                  '${doctorList[index].image}',
+                                  fit: BoxFit.cover,
                                 ),
-                              ],
-                            )
-                          ],
+                              ),
+                              SizedBox(height: 12.0),
+                              Text(
+                                '${doctorList[index].name}',
+                                overflow: TextOverflow.clip,
+                                maxLines: 1,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 6.0),
+                              Text(
+                                '${doctorList[index].specialist}',
+                                overflow: TextOverflow.clip,
+                                maxLines: 1,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  RatingBarIndicator(
+                                    rating: doctorList[index].rating,
+                                    itemBuilder: (context, index) => Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                    ),
+                                    itemCount: 5,
+                                    itemSize: 50.0,
+                                    direction: Axis.horizontal,
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
