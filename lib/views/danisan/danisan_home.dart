@@ -1,6 +1,6 @@
 import 'package:doctor_consultant_mobile_app/helpers/colors.dart';
-import 'package:doctor_consultant_mobile_app/views/doctor_detail.dart';
-import 'package:doctor_consultant_mobile_app/views/doctor_list.dart';
+import 'package:doctor_consultant_mobile_app/views/danisan/danisan_list.dart';
+import 'package:doctor_consultant_mobile_app/views/diyetisyen/diyetisyen_detail.dart';
 import 'package:doctor_consultant_mobile_app/widgets/consultation_card.dart';
 import 'package:doctor_consultant_mobile_app/widgets/doctor_card.dart';
 import 'package:doctor_consultant_mobile_app/widgets/search_box.dart';
@@ -122,7 +122,7 @@ class _DanisanHomeViewState extends State<DanisanHomeView> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => DoctorListView()));
+                                  builder: (context) => DanisanListView()));
                         },
                         child:
                             Text("View all", style: theme.textTheme.subtitle1),
@@ -146,7 +146,7 @@ class _DanisanHomeViewState extends State<DanisanHomeView> {
                         onTap: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => DoctorListViewDetail(
+                              builder: (context) => DiyetisyenListViewDetail(
                                 doctorModel: doctorList[index],
                               ),
                             ),

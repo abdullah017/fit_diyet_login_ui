@@ -1,16 +1,17 @@
+import 'package:doctor_consultant_mobile_app/models/danisan_model/danisan_model.dart';
 import 'package:doctor_consultant_mobile_app/models/doctor.dart';
-import 'package:doctor_consultant_mobile_app/views/doctor_detail.dart';
+import 'package:doctor_consultant_mobile_app/views/danisan/danisan_detail.dart';
 import 'package:doctor_consultant_mobile_app/widgets/search_box.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-class DoctorListView extends StatefulWidget {
+class DanisanListView extends StatefulWidget {
   @override
-  _DoctorListViewState createState() => _DoctorListViewState();
+  _DanisanListViewState createState() => _DanisanListViewState();
 }
 
-class _DoctorListViewState extends State<DoctorListView> {
+class _DanisanListViewState extends State<DanisanListView> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,8 +39,8 @@ class _DoctorListViewState extends State<DoctorListView> {
                         onTap: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => DoctorListViewDetail(
-                                doctorModel: doctorList[index],
+                              builder: (context) => DanisanListViewDetail(
+                                danisanModel: danisanList[index],
                               ),
                             ),
                           );
@@ -52,13 +53,13 @@ class _DoctorListViewState extends State<DoctorListView> {
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(14.0),
                                 child: Image.asset(
-                                  '${doctorList[index].image}',
+                                  '${danisanList[index].image}',
                                   fit: BoxFit.cover,
                                 ),
                               ),
                               SizedBox(height: 12.0),
                               Text(
-                                '${doctorList[index].name}',
+                                '${danisanList[index].name}',
                                 overflow: TextOverflow.clip,
                                 maxLines: 1,
                                 textAlign: TextAlign.center,
@@ -69,7 +70,7 @@ class _DoctorListViewState extends State<DoctorListView> {
                               ),
                               SizedBox(height: 6.0),
                               Text(
-                                '${doctorList[index].specialist}',
+                                '${danisanList[index].age}',
                                 overflow: TextOverflow.clip,
                                 maxLines: 1,
                                 textAlign: TextAlign.center,
@@ -78,22 +79,22 @@ class _DoctorListViewState extends State<DoctorListView> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  RatingBarIndicator(
-                                    rating: doctorList[index].rating,
-                                    itemBuilder: (context, index) => Icon(
-                                      Icons.star,
-                                      color: Colors.amber,
-                                    ),
-                                    itemCount: 5,
-                                    itemSize: 50.0,
-                                    direction: Axis.horizontal,
-                                  ),
-                                ],
-                              )
+                              // Row(
+                              //   mainAxisAlignment:
+                              //       MainAxisAlignment.spaceEvenly,
+                              //   children: [
+                              //     RatingBarIndicator(
+                              //       rating: doctorList[index].rating,
+                              //       itemBuilder: (context, index) => Icon(
+                              //         Icons.star,
+                              //         color: Colors.amber,
+                              //       ),
+                              //       itemCount: 5,
+                              //       itemSize: 50.0,
+                              //       direction: Axis.horizontal,
+                              //     ),
+                              //   ],
+                              // )
                             ],
                           ),
                         ),

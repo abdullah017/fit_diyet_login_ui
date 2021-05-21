@@ -1,5 +1,5 @@
-import 'package:doctor_consultant_mobile_app/views/doctor_detail.dart';
-import 'package:doctor_consultant_mobile_app/views/doctor_list.dart';
+import 'package:doctor_consultant_mobile_app/views/diyetisyen/diyetisyen_detail.dart';
+import 'package:doctor_consultant_mobile_app/views/diyetisyen/doctor_list.dart';
 import 'package:doctor_consultant_mobile_app/views/danisan/danisan_home.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +14,7 @@ class _BottomBarMenuState extends State<BottomBarMenu> {
     int _selectedIndex = 0;
     List<Widget> _widgetOptions = <Widget>[
       DanisanHomeView(),
-      DoctorListViewDetail(),
+      DiyetisyenListViewDetail(),
       DoctorListView()
     ];
 

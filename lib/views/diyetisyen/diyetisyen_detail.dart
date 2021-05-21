@@ -2,21 +2,22 @@ import 'package:doctor_consultant_mobile_app/models/doctor.dart';
 import 'package:flutter/material.dart';
 
 /// [Detay Sayfası]
-class DoctorListViewDetail extends StatefulWidget {
+class DiyetisyenListViewDetail extends StatefulWidget {
   final Doctor doctorModel;
 
-  const DoctorListViewDetail({Key key, this.doctorModel}) : super(key: key);
+  const DiyetisyenListViewDetail({Key key, this.doctorModel}) : super(key: key);
 
   @override
-  _DoctorListViewDetailState createState() => _DoctorListViewDetailState();
+  _DiyetisyenListViewDetailState createState() =>
+      _DiyetisyenListViewDetailState();
 }
 
-class _DoctorListViewDetailState extends State<DoctorListViewDetail> {
-  Doctor _doctorModel;
+class _DiyetisyenListViewDetailState extends State<DiyetisyenListViewDetail> {
+  Doctor doctorModel;
 
   @override
   void initState() {
-    _doctorModel = widget.doctorModel;
+    doctorModel = widget.doctorModel;
     super.initState();
   }
 
@@ -62,7 +63,7 @@ class _DoctorListViewDetailState extends State<DoctorListViewDetail> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
                         image: DecorationImage(
-                            image: AssetImage('${_doctorModel.image}'),
+                            image: AssetImage('${doctorModel.image}'),
                             fit: BoxFit.contain)),
                   ),
                 ],
@@ -89,7 +90,7 @@ class _DoctorListViewDetailState extends State<DoctorListViewDetail> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            '${_doctorModel.name}',
+                            '${doctorModel.name}',
                             style: TextStyle(color: Colors.white70),
                           ),
                         ),
@@ -109,7 +110,7 @@ class _DoctorListViewDetailState extends State<DoctorListViewDetail> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            '${_doctorModel.specialist}',
+                            '${doctorModel.specialist}',
                             style: TextStyle(color: Colors.white70),
                           ),
                         ),
@@ -129,7 +130,7 @@ class _DoctorListViewDetailState extends State<DoctorListViewDetail> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            '${_doctorModel.academy}',
+                            '${doctorModel.academy}',
                             style: TextStyle(color: Colors.white70),
                           ),
                         ),
@@ -149,7 +150,7 @@ class _DoctorListViewDetailState extends State<DoctorListViewDetail> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            '${_doctorModel.reviews}',
+                            '${doctorModel.rating}',
                             style: TextStyle(color: Colors.white70),
                           ),
                         ),
@@ -185,7 +186,7 @@ class _DoctorListViewDetailState extends State<DoctorListViewDetail> {
               ),
             ))
           ],
-        ), // This trailing comma makes auto-formatting nicer for build methods.
+        ),
       ),
     );
   }
