@@ -13,17 +13,17 @@ class _RegisterViewState extends State<RegisterView> {
   bool _obscureText = false;
   bool _isChange = false;
 
-  _toggle() {
-    setState(() {
-      _obscureText = !_obscureText;
-      debugPrint(_obscureText.toString());
-    });
-  }
-
   _roleChange() {
     setState(() {
       _isChange = !_isChange;
       debugPrint(_isChange.toString());
+    });
+  }
+
+  _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+      debugPrint(_obscureText.toString());
     });
   }
 

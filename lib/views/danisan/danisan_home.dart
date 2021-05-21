@@ -1,5 +1,4 @@
 import 'package:doctor_consultant_mobile_app/helpers/colors.dart';
-import 'package:doctor_consultant_mobile_app/providers/theme_provider.dart';
 import 'package:doctor_consultant_mobile_app/views/doctor_detail.dart';
 import 'package:doctor_consultant_mobile_app/views/doctor_list.dart';
 import 'package:doctor_consultant_mobile_app/widgets/consultation_card.dart';
@@ -9,12 +8,12 @@ import 'package:doctor_consultant_mobile_app/widgets/specialist_card.dart';
 import 'package:flutter/material.dart';
 import 'package:doctor_consultant_mobile_app/models/doctor.dart';
 
-class HomeView extends StatefulWidget {
+class DanisanHomeView extends StatefulWidget {
   @override
-  _HomeViewState createState() => _HomeViewState();
+  _DanisanHomeViewState createState() => _DanisanHomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _DanisanHomeViewState extends State<DanisanHomeView> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -22,50 +21,22 @@ class _HomeViewState extends State<HomeView> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(70.0),
-          child: Padding(
-            padding: const EdgeInsets.only(top: 25.0),
-            child: ListTile(
-              leading: Container(
-                width: 40.0,
-                height: 40.0,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12.0),
-                  image: DecorationImage(
-                    image: AssetImage(
-                        "assets/01-shutterstock_476340928-Irina-Bg.jpg"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
+        drawer: Drawer(),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: Builder(
+            builder: (context) => IconButton(
+              icon: Icon(
+                Icons.menu_rounded,
+                color: Colors.green,
               ),
-              title: Text("Melody", style: theme.textTheme.headline5),
-              subtitle: Text(
-                "",
-                style: theme.textTheme.subtitle2,
-              ),
-              trailing: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  color: theme.cardColor,
-                ),
-                child: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      // Provider.of<ThemeProvider>(context, listen: false)
-                      //     .changeTheme();
-                    });
-                  },
-                  icon: Icon(
-                    ThemeProvider().lightTheme
-                        ? Icons.brightness_5
-                        : Icons.brightness_4,
-                    color: kGreenColor,
-                    size: 30.0,
-                  ),
-                ),
-              ),
+              onPressed: () => Scaffold.of(context).openDrawer(),
             ),
+          ),
+          title: Center(
+            child:
+                Text(" FİT DİYET APP ", style: TextStyle(color: Colors.green)),
           ),
         ),
         body: Container(
@@ -80,7 +51,7 @@ class _HomeViewState extends State<HomeView> {
                 SizedBox(height: 25.0),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                  child: Text("Specialist", style: theme.textTheme.headline3),
+                  child: Text("Specialist", style: theme.textTheme.headline4),
                 ),
                 SizedBox(height: 15.0),
                 Container(

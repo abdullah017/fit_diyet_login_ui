@@ -1,5 +1,6 @@
 import 'package:doctor_consultant_mobile_app/views/auth/register.dart';
-import 'package:doctor_consultant_mobile_app/views/home.dart';
+import 'package:doctor_consultant_mobile_app/views/danisan/danisan_home.dart';
+import 'package:doctor_consultant_mobile_app/views/diyetisyen/diyetisyen_home.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatefulWidget {
@@ -17,6 +18,16 @@ class _LoginViewState extends State<LoginView> {
     });
   }
 
+  int radioDeger = 0;
+  bool _isChange = false;
+
+  _roleChange() {
+    setState(() {
+      _isChange = !_isChange;
+      debugPrint(_isChange.toString());
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,6 +36,36 @@ class _LoginViewState extends State<LoginView> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Row(
+              children: [
+                Expanded(
+                  child: RadioListTile(
+                    activeColor: Colors.pink,
+                    title: Text('Diyetisyen'),
+                    value: 1,
+                    groupValue: radioDeger,
+                    onChanged: (int veri) {
+                      _roleChange();
+                      radioDeger = veri;
+                      debugPrint("$radioDeger");
+                    },
+                  ),
+                ),
+                Expanded(
+                  child: RadioListTile(
+                    activeColor: Colors.pink,
+                    title: Text('Danışan'),
+                    value: 2,
+                    groupValue: radioDeger,
+                    onChanged: (int veri) {
+                      _roleChange();
+                      radioDeger = veri;
+                      debugPrint("$radioDeger");
+                    },
+                  ),
+                ),
+              ],
+            ),
             Form(
               child: Column(
                 children: [
@@ -82,8 +123,14 @@ class _LoginViewState extends State<LoginView> {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => HomeView()));
+                if (radioDeger == 2) {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => DanisanHomeView()));
+                }
+                if (radioDeger == 1) {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => DiyetisyenHomeView()));
+                }
               },
               child: Text(
                 'GİRİŞ YAP',

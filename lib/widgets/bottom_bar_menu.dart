@@ -1,6 +1,6 @@
 import 'package:doctor_consultant_mobile_app/views/doctor_detail.dart';
 import 'package:doctor_consultant_mobile_app/views/doctor_list.dart';
-import 'package:doctor_consultant_mobile_app/views/home.dart';
+import 'package:doctor_consultant_mobile_app/views/danisan/danisan_home.dart';
 import 'package:flutter/material.dart';
 
 class BottomBarMenu extends StatefulWidget {
@@ -13,7 +13,7 @@ class _BottomBarMenuState extends State<BottomBarMenu> {
   Widget build(BuildContext context) {
     int _selectedIndex = 0;
     List<Widget> _widgetOptions = <Widget>[
-      HomeView(),
+      DanisanHomeView(),
       DoctorListViewDetail(),
       DoctorListView()
     ];
