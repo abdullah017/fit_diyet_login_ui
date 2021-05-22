@@ -1,10 +1,8 @@
 import 'package:doctor_consultant_mobile_app/models/danisan_model/danisan_model.dart';
-import 'package:doctor_consultant_mobile_app/models/doctor.dart';
+import 'package:doctor_consultant_mobile_app/models/diyetisyen_model/doctor.dart';
 import 'package:doctor_consultant_mobile_app/views/danisan/danisan_detail.dart';
 import 'package:doctor_consultant_mobile_app/widgets/search_box.dart';
 import 'package:flutter/material.dart';
-
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class DanisanListView extends StatefulWidget {
   @override

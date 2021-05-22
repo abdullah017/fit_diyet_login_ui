@@ -1,3 +1,4 @@
+import 'package:doctor_consultant_mobile_app/models/users/user_model.dart';
 import 'package:doctor_consultant_mobile_app/views/auth/register.dart';
 import 'package:doctor_consultant_mobile_app/views/danisan/danisan_home.dart';
 import 'package:doctor_consultant_mobile_app/views/diyetisyen/diyetisyen_home.dart';
@@ -9,6 +10,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  // ignore: unused_field
   String _email, _password;
 
   bool _obscureText = true;
@@ -122,20 +124,27 @@ class _LoginViewState extends State<LoginView> {
               ),
             ),
             ElevatedButton(
-              onPressed: () {
-                if (radioDeger == 2) {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => DanisanHomeView()));
-                }
-                if (radioDeger == 1) {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => DiyetisyenHomeView()));
-                }
-              },
               child: Text(
                 'GİRİŞ YAP',
                 style: TextStyle(color: Colors.white),
               ),
+              onPressed: () {
+                print("EMAİL== $_email  PASSWORD== $_password");
+                if (radioDeger == 2 &&
+                    _email == "asd@mail.com" &&
+                    _password == "80") {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => DanisanHomeView()));
+                } else {
+                  _showDialog(context);
+                }
+                if (radioDeger == 1 &&
+                    _email == "a@mail.com" &&
+                    _password == "80") {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => DiyetisyenHomeView()));
+                }
+              },
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -158,6 +167,26 @@ class _LoginViewState extends State<LoginView> {
           ],
         ),
       ),
+    );
+  }
+
+  void _showDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: new Text("HATA"),
+          content: new Text("E-POSTA VEYA ŞİFRENİZ HATALI"),
+          actions: <Widget>[
+            new ElevatedButton(
+              child: new Text("OK"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

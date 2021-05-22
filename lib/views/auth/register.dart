@@ -7,6 +7,7 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
+  // ignore: unused_field
   String _email, _password;
 
   int radioDeger = 0;

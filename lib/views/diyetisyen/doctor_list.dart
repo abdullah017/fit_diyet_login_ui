@@ -1,4 +1,4 @@
-import 'package:doctor_consultant_mobile_app/models/doctor.dart';
+import 'package:doctor_consultant_mobile_app/models/diyetisyen_model/doctor.dart';
 import 'package:doctor_consultant_mobile_app/views/diyetisyen/diyetisyen_detail.dart';
 import 'package:doctor_consultant_mobile_app/widgets/search_box.dart';
 import 'package:flutter/material.dart';

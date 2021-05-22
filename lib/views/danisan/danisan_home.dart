@@ -6,7 +6,7 @@ import 'package:doctor_consultant_mobile_app/widgets/doctor_card.dart';
 import 'package:doctor_consultant_mobile_app/widgets/search_box.dart';
 import 'package:doctor_consultant_mobile_app/widgets/specialist_card.dart';
 import 'package:flutter/material.dart';
-import 'package:doctor_consultant_mobile_app/models/doctor.dart';
+import 'package:doctor_consultant_mobile_app/models/diyetisyen_model/doctor.dart';
 
 class DanisanHomeView extends StatefulWidget {
   @override
@@ -21,7 +21,41 @@ class _DanisanHomeViewState extends State<DanisanHomeView> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        drawer: Drawer(),
+        drawer: Drawer(
+          // Add a ListView to the drawer. This ensures the user can scroll
+          // through the options in the drawer if there isn't enough vertical
+          // space to fit everything.
+          child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+                child: Text('Drawer Header'),
+              ),
+              ListTile(
+                title: Text('Item 1'),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: Text('Item 2'),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        ),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
