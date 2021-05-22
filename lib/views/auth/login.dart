@@ -1,4 +1,5 @@
 import 'package:doctor_consultant_mobile_app/models/users/user_model.dart';
+import 'package:doctor_consultant_mobile_app/views/auth/password_reset.dart';
 import 'package:doctor_consultant_mobile_app/views/auth/register.dart';
 import 'package:doctor_consultant_mobile_app/views/danisan/danisan_home.dart';
 import 'package:doctor_consultant_mobile_app/views/diyetisyen/diyetisyen_home.dart';
@@ -122,6 +123,25 @@ class _LoginViewState extends State<LoginView> {
                   ),
                 ],
               ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PasswordResetView(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Parolamı unuttum',
+                    style: TextStyle(color: Colors.pink),
+                  ),
+                )
+              ],
             ),
             ElevatedButton(
               child: Text(

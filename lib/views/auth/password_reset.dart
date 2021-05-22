@@ -2,12 +2,12 @@ import 'package:doctor_consultant_mobile_app/views/auth/login.dart';
 import 'package:doctor_consultant_mobile_app/widgets/register_form_text_form_field.dart';
 import 'package:flutter/material.dart';
 
-class RegisterView extends StatefulWidget {
+class PasswordResetView extends StatefulWidget {
   @override
-  _RegisterViewState createState() => _RegisterViewState();
+  _PasswordResetViewState createState() => _PasswordResetViewState();
 }
 
-class _RegisterViewState extends State<RegisterView> {
+class _PasswordResetViewState extends State<PasswordResetView> {
   // ignore: unused_field
   String _email, _password;
 
@@ -77,65 +77,6 @@ class _RegisterViewState extends State<RegisterView> {
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
                             child: RegisterFormTextFormField(
-                              labelText: 'Ad',
-                              prefixIcon: Icons.account_circle,
-                              onChanged: (value) {
-                                setState(() {
-                                  _email = value.trim();
-                                });
-                              },
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            child: RegisterFormTextFormField(
-                              labelText: 'Soyad',
-                              prefixIcon: Icons.account_circle,
-                              onChanged: (value) {
-                                setState(() {
-                                  _email = value.trim();
-                                });
-                              },
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            child: Visibility(
-                              visible: _isChange,
-                              child: RegisterFormTextFormField(
-                                labelText: 'T.C',
-                                prefixIcon: Icons.assignment_ind_rounded,
-                                onChanged: (value) {
-                                  setState(() {
-                                    _email = value.trim();
-                                  });
-                                },
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            child: RegisterFormTextFormField(
-                              labelText: 'Telefon',
-                              prefixIcon: Icons.phone,
-                              onChanged: (value) {
-                                setState(() {
-                                  _email = value.trim();
-                                });
-                              },
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            child: RegisterFormTextFormField(
                               labelText: 'E-Posta',
                               prefixIcon: Icons.mail,
                               onChanged: (value) {
@@ -169,28 +110,47 @@ class _RegisterViewState extends State<RegisterView> {
                             ),
                           ),
                         ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            child: RegisterFormTextFormField(
+                              labelText: 'Parola',
+                              prefixIcon: Icons.lock,
+                              onChanged: (value) {
+                                setState(() {
+                                  _password = value.trim();
+                                });
+                              },
+                              obscureText: _obscureText,
+                              suffixIcon: IconButton(
+                                icon: Icon(_obscureText
+                                    ? Icons.visibility
+                                    : Icons.visibility_off),
+                                onPressed: () {
+                                  _toggle();
+                                },
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      if (radioDeger == 1) {
+                      if (radioDeger == 1 &&
+                          _email == "a@mail.com" &&
+                          _password == "80") {
+                        print('Danisan rolü seçildi');
+                      }
+                      if (radioDeger == 2 &&
+                          _email == "asd@mail.com" &&
+                          _password == "80") {
                         print('Diyetisyen rolü seçildi');
                       }
-                      if (radioDeger == 2) {
-                        print('Danışan rolü seçildi');
-                      }
-
-                      // auth
-                      //     .signInWithEmailAndPassword(
-                      //         email: _email, password: _password)
-                      //     .then((_) {
-                      //   Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      //       builder: (context) => HomeView()));
-                      // });
                     },
                     child: Text(
-                      'KAYDOL',
+                      'ONAYLA',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
